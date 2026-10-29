@@ -1,4 +1,4 @@
-/**
+﻿/**
  * Model access, with the properties the product promises:
  *   - schema-constrained structured output (JSON schemas validated with zod),
  *   - provider fallback (Gemini free tier -> GLM paid) so a quota error on
@@ -81,7 +81,6 @@ async function geminiText(o: GeminiOpts): Promise<string> {
           generationConfig: {
             temperature: 0,
             responseMimeType: 'application/json',
-            thinkingConfig: { thinkingBudget: 0 },
           },
         }),
       },
@@ -92,18 +91,14 @@ async function geminiText(o: GeminiOpts): Promise<string> {
     // remain bounded by the post-read parseBounded gate — documented residual)
     const declared = Number(res.headers.get('content-length') ?? '0');
     if (declared > MAX_HTTP_BODY_BYTES) throw new Error(`gemini response too large (${declared} bytes)`);
-    if (declared === 0) {
-      // no/zero content-length: read defensively and enforce the same bound
-      const text = await res.text();
-      if (text.length > MAX_HTTP_BODY_BYTES) throw new Error(`gemini response too large (${text.length} chars)`);
-      return text;
-    }
-    const data = (await res.json()) as {
+    const text = await res.text();
+    if (text.length > MAX_HTTP_BODY_BYTES) throw new Error(`gemini response too large (${text.length} chars)`);
+    const data = JSON.parse(text) as {
       candidates?: Array<{ content?: { parts?: Array<{ text?: string }> } }>;
     };
-    const text = data.candidates?.[0]?.content?.parts?.map((p) => p.text ?? '').join('') ?? '';
-    if (!text) throw new Error('gemini empty');
-    return text;
+    const candidateText = data.candidates?.[0]?.content?.parts?.map((p) => p.text ?? '').join('') ?? '';
+    if (!candidateText) throw new Error('gemini empty');
+    return candidateText;
   } finally {
     clearTimeout(t);
   }
@@ -138,17 +133,14 @@ async function glmText(o: GlmOpts): Promise<string> {
     if (!res.ok) throw new Error(`glm ${res.status}`);
     const declared = Number(res.headers.get('content-length') ?? '0');
     if (declared > MAX_HTTP_BODY_BYTES) throw new Error(`glm response too large (${declared} bytes)`);
-    if (declared === 0) {
-      const text = await res.text();
-      if (text.length > MAX_HTTP_BODY_BYTES) throw new Error(`glm response too large (${text.length} chars)`);
-      return text;
-    }
-    const data = (await res.json()) as {
+    const text = await res.text();
+    if (text.length > MAX_HTTP_BODY_BYTES) throw new Error(`glm response too large (${text.length} chars)`);
+    const data = JSON.parse(text) as {
       choices?: Array<{ message?: { content?: string } }>;
     };
-    const text = data.choices?.[0]?.message?.content ?? '';
-    if (!text) throw new Error('glm empty');
-    return text;
+    const choiceText = data.choices?.[0]?.message?.content ?? '';
+    if (!choiceText) throw new Error('glm empty');
+    return choiceText;
   } finally {
     clearTimeout(t);
   }
@@ -210,17 +202,23 @@ export class ModelGateway {
     const timeoutMs = this.cfg.timeoutMs ?? 25_000;
     const errors: string[] = [];
     if (this.cfg.geminiKey) {
-      try {
-        return {
-          text: await geminiText({
-            key: this.cfg.geminiKey,
-            model: this.cfg.geminiModel ?? 'gemini-2.0-flash',
-            system, user, timeoutMs,
-          }),
-          provider: 'gemini',
-        };
-      } catch (e) {
-        errors.push(String(e));
+      const modelsToTry = Array.from(new Set([
+        this.cfg.geminiModel || 'gemini-3.5-flash-lite',
+        'gemini-3.5-flash-lite',
+      ]));
+      for (const m of modelsToTry) {
+        try {
+          return {
+            text: await geminiText({
+              key: this.cfg.geminiKey,
+              model: m,
+              system, user, timeoutMs,
+            }),
+            provider: 'gemini',
+          };
+        } catch (e) {
+          errors.push(String(e));
+        }
       }
     }
     if (this.cfg.zaiKey) {
@@ -300,7 +298,7 @@ Given a CLAIM and a SOURCE, output JSON {"verdict": "supports"|"contradicts"|"ne
 export function modelConfigFromEnv(env: NodeJS.ProcessEnv = process.env): ModelConfig {
   return {
     geminiKey: env.GEMINI_API_KEY,
-    geminiModel: env.GEMINI_MODEL,
+    geminiModel: env.GEMINI_MODEL || 'gemini-3.5-flash-lite',
     zaiKey: env.ZAI_API_KEY,
     zaiModel: env.ZAI_MODEL,
     confidential: env.CONFIDENTIAL_MODE === 'true' || (!env.GEMINI_API_KEY && !env.ZAI_API_KEY),
