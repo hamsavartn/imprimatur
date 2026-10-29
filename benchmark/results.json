@@ -1,0 +1,406 @@
+{
+  "mode": "offline",
+  "at": "2026-10-28T23:52:23.666Z",
+  "results": [
+    {
+      "id": "a01",
+      "stratum": "A",
+      "pass": true,
+      "missing": [],
+      "extra": [],
+      "evidenceOk": true
+    },
+    {
+      "id": "a02",
+      "stratum": "A",
+      "pass": true,
+      "missing": [],
+      "extra": [],
+      "evidenceOk": true
+    },
+    {
+      "id": "a03",
+      "stratum": "A",
+      "pass": true,
+      "missing": [],
+      "extra": [],
+      "evidenceOk": true
+    },
+    {
+      "id": "a04",
+      "stratum": "A",
+      "pass": true,
+      "missing": [],
+      "extra": [],
+      "evidenceOk": true
+    },
+    {
+      "id": "a05",
+      "stratum": "A",
+      "pass": true,
+      "missing": [],
+      "extra": [],
+      "evidenceOk": true
+    },
+    {
+      "id": "a06",
+      "stratum": "A",
+      "pass": true,
+      "missing": [],
+      "extra": [],
+      "evidenceOk": true
+    },
+    {
+      "id": "a07",
+      "stratum": "A",
+      "pass": true,
+      "missing": [],
+      "extra": [],
+      "evidenceOk": true
+    },
+    {
+      "id": "a08",
+      "stratum": "A",
+      "pass": true,
+      "missing": [],
+      "extra": [],
+      "evidenceOk": true
+    },
+    {
+      "id": "a09",
+      "stratum": "A",
+      "pass": true,
+      "missing": [],
+      "extra": [],
+      "evidenceOk": true
+    },
+    {
+      "id": "a10",
+      "stratum": "A",
+      "pass": true,
+      "missing": [],
+      "extra": [],
+      "evidenceOk": true
+    },
+    {
+      "id": "b01",
+      "stratum": "B",
+      "pass": true,
+      "missing": [],
+      "extra": [],
+      "evidenceOk": true
+    },
+    {
+      "id": "b02",
+      "stratum": "B",
+      "pass": true,
+      "missing": [],
+      "extra": [],
+      "evidenceOk": true
+    },
+    {
+      "id": "b03",
+      "stratum": "B",
+      "pass": true,
+      "missing": [],
+      "extra": [],
+      "evidenceOk": true
+    },
+    {
+      "id": "b04",
+      "stratum": "B",
+      "pass": true,
+      "missing": [],
+      "extra": [],
+      "evidenceOk": true
+    },
+    {
+      "id": "b05",
+      "stratum": "B",
+      "pass": true,
+      "missing": [],
+      "extra": [],
+      "evidenceOk": true
+    },
+    {
+      "id": "b06",
+      "stratum": "B",
+      "pass": true,
+      "missing": [],
+      "extra": [],
+      "evidenceOk": true
+    },
+    {
+      "id": "b07",
+      "stratum": "B",
+      "pass": true,
+      "missing": [],
+      "extra": [],
+      "evidenceOk": true
+    },
+    {
+      "id": "b08",
+      "stratum": "B",
+      "pass": true,
+      "missing": [],
+      "extra": [],
+      "evidenceOk": true
+    },
+    {
+      "id": "b09",
+      "stratum": "B",
+      "pass": true,
+      "missing": [],
+      "extra": [],
+      "evidenceOk": true
+    },
+    {
+      "id": "b10",
+      "stratum": "B",
+      "pass": true,
+      "missing": [],
+      "extra": [],
+      "evidenceOk": true
+    },
+    {
+      "id": "b11",
+      "stratum": "B",
+      "pass": true,
+      "missing": [],
+      "extra": [],
+      "evidenceOk": true
+    },
+    {
+      "id": "b12",
+      "stratum": "B",
+      "pass": false,
+      "missing": [
+        "unverifiable"
+      ],
+      "extra": [
+        "contradicts_fact:\"The Basic plan includes 14 connectors, p\""
+      ],
+      "evidenceOk": true
+    },
+    {
+      "id": "b13",
+      "stratum": "B",
+      "pass": true,
+      "missing": [],
+      "extra": [],
+      "evidenceOk": true
+    },
+    {
+      "id": "b14",
+      "stratum": "B",
+      "pass": true,
+      "missing": [],
+      "extra": [],
+      "evidenceOk": true
+    },
+    {
+      "id": "b15",
+      "stratum": "B",
+      "pass": true,
+      "missing": [],
+      "extra": [],
+      "evidenceOk": true
+    },
+    {
+      "id": "b16",
+      "stratum": "B",
+      "pass": true,
+      "missing": [],
+      "extra": [],
+      "evidenceOk": true
+    },
+    {
+      "id": "b17",
+      "stratum": "B",
+      "pass": true,
+      "missing": [],
+      "extra": [],
+      "evidenceOk": true
+    },
+    {
+      "id": "b18",
+      "stratum": "B",
+      "pass": true,
+      "missing": [],
+      "extra": [],
+      "evidenceOk": true
+    },
+    {
+      "id": "c01",
+      "stratum": "C",
+      "pass": true,
+      "missing": [],
+      "extra": [],
+      "evidenceOk": true
+    },
+    {
+      "id": "c02",
+      "stratum": "C",
+      "pass": true,
+      "missing": [],
+      "extra": [],
+      "evidenceOk": true
+    },
+    {
+      "id": "c03",
+      "stratum": "C",
+      "pass": false,
+      "missing": [
+        "human_review"
+      ],
+      "extra": [
+        "unsupported:\"Meridian Flow saves customers a lot of m\""
+      ],
+      "evidenceOk": true
+    },
+    {
+      "id": "c04",
+      "stratum": "C",
+      "pass": true,
+      "missing": [],
+      "extra": [],
+      "evidenceOk": true
+    },
+    {
+      "id": "c05",
+      "stratum": "C",
+      "pass": false,
+      "missing": [
+        "human_review"
+      ],
+      "extra": [],
+      "evidenceOk": true
+    },
+    {
+      "id": "c06",
+      "stratum": "C",
+      "pass": true,
+      "missing": [],
+      "extra": [],
+      "evidenceOk": true
+    },
+    {
+      "id": "c07",
+      "stratum": "C",
+      "pass": true,
+      "missing": [],
+      "extra": [],
+      "evidenceOk": true
+    },
+    {
+      "id": "c08",
+      "stratum": "C",
+      "pass": true,
+      "missing": [],
+      "extra": [],
+      "evidenceOk": true
+    },
+    {
+      "id": "c09",
+      "stratum": "C",
+      "pass": true,
+      "missing": [],
+      "extra": [],
+      "evidenceOk": true
+    },
+    {
+      "id": "c10",
+      "stratum": "C",
+      "pass": true,
+      "missing": [],
+      "extra": [],
+      "evidenceOk": true
+    },
+    {
+      "id": "c11",
+      "stratum": "C",
+      "pass": true,
+      "missing": [],
+      "extra": [],
+      "evidenceOk": true
+    },
+    {
+      "id": "c12",
+      "stratum": "C",
+      "pass": true,
+      "missing": [],
+      "extra": [],
+      "evidenceOk": true
+    },
+    {
+      "id": "d01",
+      "stratum": "D",
+      "pass": true,
+      "missing": [],
+      "extra": []
+    },
+    {
+      "id": "d02",
+      "stratum": "D",
+      "pass": true,
+      "missing": [],
+      "extra": []
+    },
+    {
+      "id": "d03",
+      "stratum": "D",
+      "pass": true,
+      "missing": [],
+      "extra": []
+    },
+    {
+      "id": "d04",
+      "stratum": "D",
+      "pass": true,
+      "missing": [],
+      "extra": []
+    },
+    {
+      "id": "d05",
+      "stratum": "D",
+      "pass": true,
+      "missing": [],
+      "extra": []
+    },
+    {
+      "id": "d06",
+      "stratum": "D",
+      "pass": true,
+      "missing": [],
+      "extra": []
+    },
+    {
+      "id": "d07",
+      "stratum": "D",
+      "pass": true,
+      "missing": [],
+      "extra": []
+    },
+    {
+      "id": "d08",
+      "stratum": "D",
+      "pass": true,
+      "missing": [],
+      "extra": []
+    },
+    {
+      "id": "d09",
+      "stratum": "D",
+      "pass": true,
+      "missing": [],
+      "extra": []
+    },
+    {
+      "id": "d10",
+      "stratum": "D",
+      "pass": true,
+      "missing": [],
+      "extra": []
+    }
+  ]
+}

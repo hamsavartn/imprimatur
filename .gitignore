@@ -1,0 +1,22 @@
+# dependencies
+node_modules/
+
+# build output
+.next/
+out/
+*.tsbuildinfo
+next-env.d.ts
+
+# environment and secrets — never commit
+.env
+.env.local
+.env.*.local
+
+# e2e evidence (regenerate with: node e2e/e2e-smoke.mjs)
+e2e/e2e-smoke.png
+
+# os / editor
+.DS_Store
+Thumbs.db
+*.log
+.vercel
